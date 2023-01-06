@@ -1,18 +1,50 @@
+using FluentAssertions;
+using FluentAssertions.Execution;
 using System.Diagnostics.CodeAnalysis;
+using System.Xml.Linq;
 
 namespace AssertsLifehacks.Tests;
 
 public class ClassesEqualsTests
 {
-    private Person _person = new(20, "Alex");
-    private Person _samePerson = new(20, "Alex");
-    private Person _personDifferentName = new(20, "Bob");
-    private Person _personFullDifferent = new(45, "Brian");
+    private readonly Person _person = new(20, "Alex");
+    private readonly Person _samePerson = new(20, "Alex");
+    private readonly Person _personDifferentName = new(20, "Bob");
+    private readonly Person _personFullDifferent = new(45, "Brian");
 
+    /// <summary>
+    /// That's perfect solution. Best error message
+    /// </summary>
     [Test]
-    public void FluentReferenceEquals()
+    public void FluentBeEquivalent()
     {
-
+        using (new AssertionScope())
+        {
+            // Pass
+            _person.Should().BeEquivalentTo(_samePerson);
+            
+            //  Expected _person to be AssertsLifehacks.Person
+            // {
+            //    Age = 20, 
+            //    Name = "Bob"
+            // }, but found AssertsLifehacks.Person
+            // {
+            //    Age = 20, 
+            //    Name = "Alex"
+            // }
+            _person.Should().BeEquivalentTo(_personDifferentName);
+            
+            //  Expected _person to be AssertsLifehacks.Person
+            // {
+            //    Age = 45, 
+            //    Name = "Brian"
+            // }, but found AssertsLifehacks.Person
+            // {
+            //    Age = 20, 
+            //    Name = "Alex"
+            // }
+            _person.Should().BeEquivalentTo(_personFullDifferent);
+        }
     }
 
     /// <summary>
@@ -56,16 +88,16 @@ public class ClassesEqualsTests
         {
             // Pass
             Assert.AreEqual(_person, _samePerson);
-            
+
             // Expected: <AssertsLifehacks.Person>
             // But was:  <AssertsLifehacks.Person>
             Assert.AreEqual(_person, _personDifferentName);
-            
+
             // Expected: <AssertsLifehacks.Person>
             // But was:  <AssertsLifehacks.Person>
             Assert.AreEqual(_person, _personFullDifferent);
         });
-        
+
     }
 
     /// <summary>
@@ -79,11 +111,11 @@ public class ClassesEqualsTests
         {
             // Pass
             Assert.That(_person, Is.EqualTo(_samePerson));
-            
+
             // Expected: <AssertsLifehacks.Person>
             // But was:  <AssertsLifehacks.Person>
             Assert.That(_person, Is.EqualTo(_personDifferentName));
-           
+
             // Expected: <AssertsLifehacks.Person>
             // But was:  <AssertsLifehacks.Person>
             Assert.That(_person, Is.EqualTo(_personFullDifferent));
