@@ -1,6 +1,6 @@
 ﻿namespace AssertsLifehacks
 {
-    internal class Person
+    internal class Person : IEquatable<Person?>
     {
         public Person(int age, string name)
         {
@@ -10,5 +10,22 @@
 
         public int Age { get; set; }
         public string Name { get; set; }
+
+        public bool Equals(Person? other)
+        {
+            return other is not null &&
+                   Age == other.Age &&
+                   Name == other.Name;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Age, Name);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Person);
+        }
     }
 }
