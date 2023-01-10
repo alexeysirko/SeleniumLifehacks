@@ -1,7 +1,6 @@
 using FluentAssertions;
 using FluentAssertions.Execution;
 using System.Diagnostics.CodeAnalysis;
-using System.Xml.Linq;
 
 namespace AssertsLifehacks.Tests;
 
@@ -22,7 +21,7 @@ public class ClassesEqualsTests
         {
             // Pass
             _person.Should().BeEquivalentTo(_samePerson);
-            
+
             //  Expected _person to be AssertsLifehacks.Person
             // {
             //    Age = 20, 
@@ -33,7 +32,7 @@ public class ClassesEqualsTests
             //    Name = "Alex"
             // }
             _person.Should().BeEquivalentTo(_personDifferentName);
-            
+
             //  Expected _person to be AssertsLifehacks.Person
             // {
             //    Age = 45, 
@@ -73,6 +72,20 @@ public class ClassesEqualsTests
             // But was:  "Alex"
             Assert.That(_person.Name, Is.EqualTo(_personFullDifferent.Name));
         });
+    }
+
+    /// <summary>
+    /// Just for fun. Works only with overrided Equals
+    /// </summary>
+    [Test]
+    public void ConvertToListAndAssertContains()
+    {
+        // PASS
+        Assert.That(new List<Person> { _person }, Does.Contain(_samePerson));
+
+        // Expected: some item equal to <AssertsLifehacks.Person>
+        // But was:  < < AssertsLifehacks.Person > >
+        Assert.That(new List<Person> { _person }, Does.Contain(_personDifferentName));       
     }
 
 
