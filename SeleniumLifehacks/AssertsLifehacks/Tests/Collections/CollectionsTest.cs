@@ -2,7 +2,7 @@
 
 namespace AssertsLifehacks.Tests.Collections;
 
-public abstract class CollectionsTests
+public abstract class CollectionsTest
 {
     protected readonly Person PersonFromList = new Person(20, "Alex");
     protected readonly Person PersonNotFromList = new Person(45, "Ben");

@@ -2,7 +2,7 @@
 
 namespace AssertsLifehacks.Tests.Collections;
 
-public class CollectionsEqualTests : CollectionsTests
+public class CollectionsEqualTests : CollectionsTest
 {
     /// <summary>
     /// Good

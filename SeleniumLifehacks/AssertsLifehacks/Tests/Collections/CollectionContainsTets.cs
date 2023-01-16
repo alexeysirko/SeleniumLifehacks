@@ -2,7 +2,7 @@
 
 namespace AssertsLifehacks.Tests.Collections;
 
-public class CollectionContainsTets : CollectionsTests
+public class CollectionContainsTets : CollectionsTest
 {
     /// <summary>
     /// Perfect

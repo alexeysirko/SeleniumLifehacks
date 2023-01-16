@@ -2,7 +2,7 @@
 
 namespace AssertsLifehacks.Tests.Collections;
 
-public class CollectionContainsCollectionTests : CollectionsTests
+public class CollectionContainsCollectionTests : CollectionsTest
 {
     [Test]
     public void FluentContains()
