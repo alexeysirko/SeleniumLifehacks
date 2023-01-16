@@ -1,4 +1,6 @@
-﻿namespace AssertsLifehacks.Tests.Collections;
+﻿using FluentAssertions;
+
+namespace AssertsLifehacks.Tests.Collections;
 
 public class CollectionSortingTests : CollectionsTest
 {
@@ -6,6 +8,53 @@ public class CollectionSortingTests : CollectionsTest
     List<Person> ExpectedSortedPersons => ActualPersons.OrderByDescending(p => p.Age).ToList();
     List<Person> UnsortedPersons => ActualPersons.OrderBy(p => p.Age).ToList();
 
+    /// <summary>
+    /// Again best error message
+    /// </summary>
+    [Test]
+    public void FluentBeInOrder()
+    {
+        // PASS
+        ActualPersons.Should().BeInDescendingOrder(p => p.Age);
+
+        /*
+            Expected ActualPersons {
+            AssertsLifehacks.Person
+            {
+                Age = 50, 
+                Name = "Brian"
+            }, 
+            AssertsLifehacks.Person
+            {
+                Age = 20, 
+                Name = "Alex"
+            }, 
+            AssertsLifehacks.Person
+            {
+                Age = 18, 
+                Name = "Anna"
+            }
+        }
+         to be ordered "by Age" and result in {
+            AssertsLifehacks.Person
+            {
+                Age = 18, 
+                Name = "Anna"
+            }, 
+            AssertsLifehacks.Person
+            {
+                Age = 20, 
+                Name = "Alex"
+            }, 
+            AssertsLifehacks.Person
+            {
+                Age = 50, 
+                Name = "Brian"
+            }
+        }
+        */
+        ActualPersons.Should().BeInAscendingOrder(p => p.Age);
+    }
 
     /// <summary>
     /// That's good
