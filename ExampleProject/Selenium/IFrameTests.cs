@@ -20,7 +20,7 @@ namespace ExampleProject.Selenium
             driver.FindElement(framesBtn).Click();
             driver.FindElement(iframeBtn).Click();
             //input text to the textfield
-            Assert.True(driver.FindElement(By.XPath(string.Format(preciseTextXpath, initText + randomValue))).Displayed,
+            Assert.That(driver.FindElement(By.XPath(string.Format(preciseTextXpath, initText + randomValue))).Displayed,
                     textIsNotDisplayedMsg);
 
             driver.FindElement(editBtn).Click();

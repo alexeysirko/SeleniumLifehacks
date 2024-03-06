@@ -26,7 +26,8 @@ namespace ExampleProject.Selenium
         public void SuccessfulBasicAuthTest()
         {
             driver.FindElement(basicAuth).Click();
-            Assert.True(driver.FindElement(successAuth).Displayed, "Message is not displayed");
+            // In video you can see Assert.True instead of Assert.That and it's old style of Nunit asserts. Now it is recommended to use Assert.That constructions
+            Assert.That(driver.FindElement(successAuth).Displayed, "Message is not displayed");
         }
 
         //stop monitoring

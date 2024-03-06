@@ -7,7 +7,7 @@ namespace ExampleProject.Selenium
     {
         private static readonly By jsAlertBtn = By.XPath(string.Format(preciseTextXpath, "JavaScript Alerts"));
         private static readonly By clickForJSAlertBtn = By.XPath("//button[@onclick='jsAlert()']");
-        
+
 
         [Test]
         public void AlertTest()

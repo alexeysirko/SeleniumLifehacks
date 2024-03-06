@@ -10,8 +10,8 @@ namespace ExampleProject.Selenium
         private static readonly string fileName = "UploadFileExample.txt";
         private static readonly string filePath = relativePathFolder + fileName;
 
-    [Test]
-   public void FileUploadTest()
+        [Test]
+        public void FileUploadTest()
         {
             driver.FindElement(fileUploadBtn).Click();
             FileInfo fileToUpload = new(filePath);

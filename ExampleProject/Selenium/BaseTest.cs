@@ -3,7 +3,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.IO;
 
 namespace ExampleProject
 {
@@ -21,6 +20,7 @@ namespace ExampleProject
         [SetUp]
         public void Setup()
         {
+            driver = new ChromeDriver();
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(maxWait));
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(url);
