@@ -6,7 +6,7 @@ namespace ExampleProject.Selenium
 {
     internal class FileDownloadTests : BaseTest
     {
-        private static readonly string fileName = "Upload.txt";
+        private static readonly string fileName = "newNew.txt";
 
         private static readonly By fileDownloadBtn = By.XPath(string.Format(preciseTextXpath, "File Download"));
         private static readonly By fileNameField = By.XPath(string.Format(preciseTextXpath, fileName));
@@ -20,8 +20,23 @@ namespace ExampleProject.Selenium
             driver.FindElement(fileDownloadBtn).Click();
             Assert.That(driver.FindElement(fileNameField).Displayed, "File is not displayed");
             driver.FindElement(fileNameField).Click();
-            //assert file is downloaded
+            wait.Until(condition => IsFileDownloaded(filePath));
+            Assert.That(IsFileDownloaded(filePath), "File is not downloaded");
         }
-        //delete the downloaded file
+
+        private bool IsFileDownloaded(string filePath)
+        {
+            var newFile = new FileInfo(Path.GetFullPath(filePath));
+            return newFile.Exists;
+        }
+
+        [TearDown]
+        public void DeleteFile()
+        {
+            if (downloadedFile.Exists)
+            {
+                downloadedFile.Delete();
+            }
+        }
     }
 }
