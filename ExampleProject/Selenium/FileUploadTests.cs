@@ -7,7 +7,10 @@ namespace ExampleProject.Selenium
     internal class FileUploadTests : BaseTest
     {
         private static readonly By fileUploadBtn = By.XPath(string.Format(preciseTextXpath, "File Upload"));
-        private static readonly string fileName = "UploadFileExample.txt";
+        private static readonly By chooseFileBtn = By.Id("file-upload");
+        private static readonly By fileSubmitField = By.Id("file-submit");
+        private static readonly By uploadedFileField = By.Id("uploaded-files");
+        private static readonly string fileName = "ExampleFile.txt";
         private static readonly string filePath = relativePathFolder + fileName;
 
         [Test]
@@ -15,8 +18,9 @@ namespace ExampleProject.Selenium
         {
             driver.FindElement(fileUploadBtn).Click();
             FileInfo fileToUpload = new(filePath);
-            //upload a new file 
-            //assert file is uploaded
+            driver.FindElement(chooseFileBtn).SendKeys(fileToUpload.FullName);
+            driver.FindElement(fileSubmitField).Click();
+            Assert.That(driver.FindElement(uploadedFileField).Text, Is.EqualTo(fileName), "File name is not correct or missing");
         }
     }
 }
