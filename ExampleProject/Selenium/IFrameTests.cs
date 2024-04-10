@@ -34,7 +34,6 @@ namespace ExampleProject.Selenium
 
             driver.SwitchTo().Frame(iFrameId);
             Assert.That(driver.FindElement(By.XPath(string.Format(preciseTextXpath, initText))).Displayed, textIsNotDisplayedMsg);
-
         }
     }
 }
