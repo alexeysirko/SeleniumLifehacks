@@ -20,5 +20,7 @@
         {
             Console.WriteLine("Animal is eating food");
         }
+
+        public int GetAge() => _age;
     }
 }
