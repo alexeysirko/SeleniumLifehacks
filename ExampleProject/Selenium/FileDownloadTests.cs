@@ -6,22 +6,25 @@ namespace ExampleProject.Selenium
 {
     internal class FileDownloadTests : BaseTest
     {
-        private static readonly string fileName = "newNew.txt";
+        private static readonly By fileNameLocator = By.XPath("//*[@id='content']//a");
 
         private static readonly By fileDownloadBtn = By.XPath(string.Format(preciseTextXpath, "File Download"));
-        private static readonly By fileNameField = By.XPath(string.Format(preciseTextXpath, fileName));
+        private static By FileNameField(string fileName) => By.XPath(string.Format(preciseTextXpath, fileName));
 
-        private static readonly string filePath = relativePathFolder + fileName;
-        private static readonly FileInfo downloadedFile = new(Path.GetFullPath(filePath));
+        private static string FilePath(string fileName) => relativePathFolder + fileName;
+        private static FileInfo downloadedFile;
 
         [Test]
         public void FileDownloadTest()
-        {
+        {         
             driver.FindElement(fileDownloadBtn).Click();
-            Assert.That(driver.FindElement(fileNameField).Displayed, "File is not displayed");
-            driver.FindElement(fileNameField).Click();
-            wait.Until(condition => IsFileDownloaded(filePath));
-            Assert.That(IsFileDownloaded(filePath), "File is not downloaded");
+            string fileName = driver.FindElement(fileNameLocator).Text;
+            Assert.That(driver.FindElement(FileNameField(fileName)).Displayed, "File is not displayed");
+            driver.FindElement(FileNameField(fileName)).Click();
+            downloadedFile = new(Path.GetFullPath(FilePath(fileName)));
+            wait.Until(condition => IsFileDownloaded(FilePath(fileName)));
+            Assert.That(IsFileDownloaded(FilePath(fileName)), "File is not downloaded");
+        }
         }
 
         private bool IsFileDownloaded(string filePath)
