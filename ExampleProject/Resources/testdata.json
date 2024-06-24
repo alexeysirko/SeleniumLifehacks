@@ -7,11 +7,11 @@
     "password": "admin"
   },
   "fileDownload": {
-    "folderPath": "..\\\\Resources\\\\",
+    "folderPath": "Resources\\\\",
     "fileName": "Error.PNG"
   },
   "fileUpload": {
-    "folderPath": "..\\\\Resources\\\\",
+    "folderPath": "Resources\\\\",
     "fileName": "UploadFileExample.txt"
   }
 }
