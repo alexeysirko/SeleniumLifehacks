@@ -1,9 +1,11 @@
-﻿using Aquality.Selenium.Browsers;
+﻿using Allure.NUnit.Attributes;
+using Aquality.Selenium.Browsers;
 using ExampleProject.Framework.Pages;
 using NUnit.Framework;
 
 namespace ExampleProject.Framework.Tests
 {
+    [AllureDisplayIgnored]
     internal class BasicAuthTest : BaseTest
     {
         private BasicAuthPage basicAuthPage = new();
@@ -16,7 +18,7 @@ namespace ExampleProject.Framework.Tests
                 testdata.GetValue<string>("basicAuth.password"));
         }
 
-        [Ignore("Aquality basic auth doesn't work")]
+        [Ignore("Aquality basic auth doesn't work")]        
         [Test]
         public void BasicAuthSuccessfulTest()
         {
