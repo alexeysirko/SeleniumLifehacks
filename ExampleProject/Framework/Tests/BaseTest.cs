@@ -1,10 +1,12 @@
-﻿using Aquality.Selenium.Browsers;
+﻿using Allure.NUnit;
+using Aquality.Selenium.Browsers;
 using Aquality.Selenium.Core.Utilities;
 using ExampleProject.Framework.Pages;
 using NUnit.Framework;
 
 namespace ExampleProject.Framework.Tests
 {
+    [AllureNUnit]
     internal class BaseTest
     {
         protected MainPage mainPage = new();

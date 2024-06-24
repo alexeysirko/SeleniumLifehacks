@@ -1,4 +1,5 @@
-﻿using ExampleProject.Framework.Pages;
+﻿using Allure.NUnit;
+using ExampleProject.Framework.Pages;
 using NUnit.Framework;
 
 namespace ExampleProject.Framework.Tests
@@ -13,7 +14,7 @@ namespace ExampleProject.Framework.Tests
             mainPage.ClickNavigationLink("JavaScript Alerts");
             jsAlertPage.ClickJSAlertBtn();
             browser.HandleAlert(Aquality.Selenium.Browsers.AlertAction.Accept);
-            Assert.IsTrue(jsAlertPage.IsSuccessMessageDisplayed(), "Success message is not displayed");
+            Assert.That(jsAlertPage.IsSuccessMessageDisplayed(), "Success message is not displayed");
         }
     }
 }
