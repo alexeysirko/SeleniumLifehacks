@@ -17,7 +17,7 @@ namespace ExampleProject.Framework.Tests
         {
             browser = AqualityServices.Browser;
             browser.Maximize();
-            browser.GoTo(settings.GetValue<string>("url"));
+            browser.Driver.Navigate().GoToUrl(settings.GetValue<string>("url"));
         }
 
         [TearDown]

@@ -14,7 +14,7 @@ namespace ExampleProject.Framework.Tests
         {
             mainPage.ClickNavigationLink("Dynamic Controls");
             dynamicControlsPage.ClickEnableBtn();
-            Assert.IsTrue(dynamicControlsPage.IsInputEnabled(), "Input is not enabled");
+            Assert.That(dynamicControlsPage.IsInputEnabled(), "Input is not enabled");
             dynamicControlsPage.InputText(randomString);
             Assert.That(randomString, Is.EqualTo(dynamicControlsPage.GetInputTextValue()),
                 "Text is not displayed");
