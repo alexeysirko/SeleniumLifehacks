@@ -6,12 +6,14 @@ namespace ExampleProject.Framework.Pages
 {
     internal class FileDownloadPage : Form
     {
-        private const string PageName = "File Download";
-        //implement locator
-        private IButton downloadLink(string filename) => ElementFactory.GetButton(By.XPath($"locator with {filename}"), "Element name");
+        private const string PageName = "File Download";       
+        private IButton downloadLink(string filename) => ElementFactory.GetButton(By.XPath(string.Format(LocatorConstants.PreciseTextLocator, filename)), "Element name");
+
+
         public FileDownloadPage() : base(By.XPath(string.Format(LocatorConstants.PreciseTextLocator, PageName)), PageName)
         {
         }
+
 
         public void ClickFileDownloadLink(string name)
         {
@@ -20,8 +22,7 @@ namespace ExampleProject.Framework.Pages
 
         public bool IsFileDownloadLinkDisplayed(string name)
         {
-            //to implement
-            return false;
+            return downloadLink(name).State.WaitForDisplayed();
         }
     }
 }

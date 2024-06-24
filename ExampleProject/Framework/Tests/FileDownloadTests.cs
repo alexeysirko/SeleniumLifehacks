@@ -15,13 +15,17 @@ namespace ExampleProject.Framework.Tests
         [Test]
         public void FileDownloadTest()
         {
-            //todo: implement a test
+            mainPage.ClickNavigationLink("File Download");
+            Assert.IsTrue(fileDownloadPage.IsFileDownloadLinkDisplayed(fileName),
+                "Download link is not displayed");
+            fileDownloadPage.ClickFileDownloadLink(fileName);
+            Assert.IsTrue(FileUtils.IsFileExists(filePath), "File was not downloaded");
         }
 
         [TearDown]
         public void DeleteFile()
         {
-            //todo: delete a file
+            FileUtils.DeleteFileIfExists(downloadedFile);
         }
     }
 }

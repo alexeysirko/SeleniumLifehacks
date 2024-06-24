@@ -16,7 +16,8 @@ namespace ExampleProject.Framework.Utils
 
         public static void DeleteFileIfExists(FileInfo fileName)
         {
-          //to implement
+            if (fileName.Exists)
+                fileName.Delete();
         }
     }
 }
