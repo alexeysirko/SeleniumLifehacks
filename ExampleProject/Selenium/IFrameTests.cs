@@ -17,6 +17,7 @@ namespace ExampleProject.Selenium
         private static readonly string initText = "Your content goes here.";
         private static readonly string iFrameId = "mce_0_ifr";
 
+        [Ignore("Test case is deprecated")]
         [Test]
         public void IFrameTest()
         {
