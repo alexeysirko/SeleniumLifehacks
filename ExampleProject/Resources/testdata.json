@@ -1,0 +1,17 @@
+﻿{
+  "dataTable": {
+    "expectedSum": 251.00
+  },
+  "basicAuth": {
+    "login": "admin",
+    "password": "admin"
+  },
+  "fileDownload": {
+    "folderPath": "..\\\\Resources\\\\",
+    "fileName": "text.txt"
+  },
+  "fileUpload": {
+    "folderPath": "..\\\\Resources\\\\",
+    "fileName": "UploadFileExample.txt"
+  }
+}
