@@ -16,8 +16,12 @@ namespace ExampleProject.Framework.Pages
 
         public List<string> GetFirstDueList()
         {
-            //implement logic
-            return new List<string>();
+            var dueList = new List<string>();
+            foreach(var dueElement in GetFirstDueLblList())
+            {
+                dueList.Add(dueElement.Text);
+            }
+            return dueList;
         }
 
         private IList<ILabel> GetFirstDueLblList()
