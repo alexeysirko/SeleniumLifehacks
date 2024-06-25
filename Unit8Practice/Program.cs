@@ -16,14 +16,14 @@ internal class Program
             animals.Add(new Donkey(2, 32.2, "Little"));
 
             Zoo zoo = new(animals, "New York");
-            zoo.PrintAnimals();
+            zoo.PrintInfo();
             Console.WriteLine();
             zoo.FeedAnimals();
 
             Console.WriteLine();
             List<Animal> filteredAnimals = AnimalsFilter.FilterByAge(animals, 10);
             Zoo filteredZoo = new(filteredAnimals, "City of grown-up animals");
-            filteredZoo.PrintAnimals();
+            filteredZoo.PrintInfo();
 
             List<Zoo> zoos = new();
             zoos.Add(zoo);
@@ -32,7 +32,7 @@ internal class Program
             zoos
                 .Where(zoo => zoo.GetCity().Contains("grown-up"))
                 .ToList()
-                .ForEach(filteredZoo => filteredZoo.PrintAnimals());
+                .ForEach(filteredZoo => filteredZoo.PrintInfo());
         }
 
         //ZooLogic();

@@ -1,6 +1,6 @@
 ﻿namespace Unit8Practice.Animals
 {
-    internal class Zoo
+    internal class Zoo : IPrintable
     {
         private string _city;
         private List<Animal> _animals;
@@ -11,7 +11,7 @@
             _city = city;
         }
 
-        public void PrintAnimals()
+        public void PrintInfo()
         {
             Console.WriteLine($"In {_city} zoo we have animals:");
             foreach (var animal in _animals)

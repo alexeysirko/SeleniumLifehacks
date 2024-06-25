@@ -1,6 +1,6 @@
 ﻿namespace Unit8Practice.Animals
 {
-    internal class Animal
+    internal class Animal : IPrintable
     {
         protected int _age;
         protected double _weight;
