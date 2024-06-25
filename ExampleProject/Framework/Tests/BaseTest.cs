@@ -1,4 +1,5 @@
-﻿using Allure.NUnit;
+﻿using Allure.Net.Commons;
+using Allure.NUnit;
 using Allure.NUnit.Attributes;
 using Aquality.Selenium.Browsers;
 using Aquality.Selenium.Core.Utilities;
@@ -30,6 +31,7 @@ namespace ExampleProject.Framework.Tests
         [AllureAfter("Close the browser")]
         public void TearDown()
         {
+            AllureApi.AddAttachment("settings file", "text/plain", "Resources/settings.json");
             browser.Quit();
         }
     }
