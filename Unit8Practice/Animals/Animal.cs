@@ -22,5 +22,10 @@
         }
 
         public int GetAge() => _age;
+
+        ~Animal()
+        {
+            Console.WriteLine("Animal object is killed");
+        }
     }
 }

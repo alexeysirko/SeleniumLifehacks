@@ -1,6 +1,4 @@
-﻿using NUnit.Framework;
-using System.Text.Json;
-using System.Text.Json.Nodes;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace Unit8Practice.Tests
@@ -24,7 +22,7 @@ namespace Unit8Practice.Tests
                 foreach (var person in users.Persons)
                 {
                     yield return person;
-                }               
+                }
             }
         }
 

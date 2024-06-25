@@ -13,5 +13,10 @@
         {
             Console.WriteLine($"This monkey loves {_foodType}");
         }
+
+        ~Monkey()
+        {
+            Console.WriteLine("Monkey object is killed");
+        }
     }
 }

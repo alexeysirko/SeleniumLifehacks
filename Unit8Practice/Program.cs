@@ -1,5 +1,5 @@
 ﻿using Unit8Practice.Animals;
-using Unit8Practice.Delegates;
+using Unit8Practice.Dynamic_Casting;
 
 internal class Program
 {
@@ -37,6 +37,8 @@ internal class Program
 
         //ZooLogic();
         //Delegates.DelegatesLogic();
-        DelegateTypes.DelegateTypesLogic();
+        //DelegateTypes.DelegateTypesLogic();
+        //AttributeTest.AttributeLogic();
+        DynamicTest.DynamicLogic();
     }
 }
