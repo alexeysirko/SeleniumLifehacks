@@ -5,6 +5,7 @@ using Aquality.Selenium.Browsers;
 using Aquality.Selenium.Core.Utilities;
 using ExampleProject.Framework.Pages;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 
 namespace ExampleProject.Framework.Tests
 {
