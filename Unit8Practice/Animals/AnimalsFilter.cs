@@ -56,5 +56,15 @@
             foreach (var duplicate in duplicates)
                 duplicate.PrintInfo();
         }
+
+        public static List<Animal> MergeAnimals(List<Animal> animalsLeft, List<Animal> animalsRight)
+        {
+            return animalsLeft.Concat(animalsRight).ToList();
+        }
+
+        public static bool HasCollectionAnimal(List<Animal> animals, Animal expectedAnimal)
+        {
+            return animals.Contains(expectedAnimal, new AnimalComparer());
+        }
     }
 }
