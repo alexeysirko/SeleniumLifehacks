@@ -1,4 +1,4 @@
-﻿namespace Unit8Practice
+﻿namespace Unit8Practice.Animals
 {
     internal static class AnimalsFilter
     {

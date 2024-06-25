@@ -1,4 +1,4 @@
-﻿namespace Unit8Practice
+﻿namespace Unit8Practice.Animals
 {
     internal class Donkey : Animal
     {

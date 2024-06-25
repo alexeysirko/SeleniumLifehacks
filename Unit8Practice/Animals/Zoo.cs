@@ -1,4 +1,4 @@
-﻿namespace Unit8Practice
+﻿namespace Unit8Practice.Animals
 {
     internal class Zoo
     {
@@ -24,8 +24,8 @@
         {
             Console.WriteLine($"Let's feed animals in {_city} Zoo!");
             int i = 0;
-            while(i < _animals.Count)
-            {                
+            while (i < _animals.Count)
+            {
                 _animals[i].EatFood();
                 i++;
             }
