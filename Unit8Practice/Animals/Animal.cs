@@ -23,6 +23,12 @@
 
         public int GetAge() => _age;
 
+        public override bool Equals(object? obj)
+        {
+            var otherAnimal = obj as Animal;
+            return _age == otherAnimal._age && _weight == otherAnimal._weight;
+        }
+
         ~Animal()
         {
             Console.WriteLine("Animal object is killed");
