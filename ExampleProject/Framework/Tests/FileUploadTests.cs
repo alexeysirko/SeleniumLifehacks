@@ -1,23 +1,28 @@
 ﻿using ExampleProject.Framework.Pages;
+using ExampleProject.Framework.Utils;
 using NUnit.Framework;
-using System.IO;
 
 namespace ExampleProject.Framework.Tests
 {
     internal class FileUploadTests : BaseTest
     {
-        private static readonly FileUploadPage fileUploadPage = new();
-
+        private FileUploadPage fileUploadPage = new();
         private static readonly string fileName = testdata.GetValue<string>("fileUpload.fileName");
         private static readonly string filePath = testdata.GetValue<string>("fileUpload.folderPath") + fileName;
 
+
         [Test]
-        public void FileUploadTest()
+
+        public void FileUpload()
         {
-            fileUploadPage.ClickFileUploadBtn();
-            fileUploadPage.SendKeysToFileToChooseFileTxb(Path.GetFullPath(filePath));
-            fileUploadPage.ClickFileSubmitBtn();
-            Assert.That(fileUploadPage.GetNameOfUploadedFile(), Is.EqualTo(fileName));
+            //mainPage.ClickNavigationLink("File Upload");
+            fileUploadPage.SendKeysToChooseFile(FileUtils.GetAbsoluteFilePath(filePath));
+            fileUploadPage.ClickSubmitButton();
+            Assert.That(fileUploadPage.GetUploadedFileTxt , Is.EqualTo(fileName) , "Not equal");
+
         }
     }
+
+    
+
 }

@@ -7,11 +7,11 @@
     "password": "admin"
   },
   "fileDownload": {
-    "folderPath": "Resources\\\\",
-    "fileName": "Error.PNG"
+    "folderPath": "..\\\\Resources\\\\",
+    "fileName": "test.jpg"
   },
   "fileUpload": {
-    "folderPath": "Resources\\\\",
-    "fileName": "UploadFileExample.txt"
+    "folderPath": "..\\\\Resources\\\\",
+    "fileName": "dake.txt"
   }
 }

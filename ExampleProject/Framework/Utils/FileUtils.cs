@@ -16,8 +16,12 @@ namespace ExampleProject.Framework.Utils
 
         public static void DeleteFileIfExists(FileInfo fileName)
         {
-            if (fileName.Exists)
+          if(fileName.Exists)
+            {
                 fileName.Delete();
+            }
         }
+
+        public static string GetAbsoluteFilePath(string filePath) => new FileInfo(filePath).FullName;
     }
 }

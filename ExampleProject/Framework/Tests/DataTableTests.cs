@@ -11,7 +11,7 @@ namespace ExampleProject.Framework.Tests
         [Test]
         public void DataTablesTest()
         {
-            mainPage.ClickNavigationLink("Sortable Data Tables");
+            //mainPage.ClickNavigationLink("Sortable Data Tables");
             var actualSum = 0.00;
             foreach (string due in dataTablesPage.GetFirstDueList())
             {

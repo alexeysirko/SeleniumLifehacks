@@ -16,8 +16,9 @@ namespace ExampleProject.Framework.Pages
 
         public List<string> GetFirstDueList()
         {
+            
             var dueList = new List<string>();
-            foreach(var dueElement in GetFirstDueLblList())
+            foreach (var dueElement in GetFirstDueLblList())
             {
                 dueList.Add(dueElement.Text);
             }

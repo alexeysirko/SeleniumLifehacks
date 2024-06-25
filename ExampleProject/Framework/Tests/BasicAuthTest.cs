@@ -11,17 +11,16 @@ namespace ExampleProject.Framework.Tests
         [SetUp]
         public void BasicAuthorisation()
         {
-            browser.RegisterBasicAuthenticationAndStartMonitoring("internet",
+            browser.RegisterBasicAuthenticationAndStartMonitoring("herokuapp.com",
                 testdata.GetValue<string>("basicAuth.login"),
                 testdata.GetValue<string>("basicAuth.password"));
         }
 
-        [Ignore("Aquality basic auth doesn't work")]
         [Test]
         public void BasicAuthSuccessfulTest()
         {
-            mainPage.ClickNavigationLink("Basic Auth");
-            Assert.That(basicAuthPage.IsSuccessMessageDisplayed(), "Success message is not displayed");
+            //mainPage.ClickNavigationLink("Basic Auth");
+            Assert.That(basicAuthPage.IsSuccessMessageDisplayed, "Success message is not displayed");
         }
     }
 }

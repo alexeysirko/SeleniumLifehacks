@@ -15,11 +15,12 @@ namespace ExampleProject.Framework.Tests
         [Test]
         public void FileDownloadTest()
         {
-            mainPage.ClickNavigationLink("File Download");
-            Assert.That(fileDownloadPage.IsFileDownloadLinkDisplayed(fileName),
-                "Download link is not displayed");
+            //mainPage.ClickNavigationLink("File Download");
+            Assert.That(fileDownloadPage.IsFileDownloadLinkDisplayed(fileName), "not displayed");
             fileDownloadPage.ClickFileDownloadLink(fileName);
-            Assert.That(FileUtils.IsFileExists(filePath), "File was not downloaded");
+            Assert.That(FileUtils.IsFileExists(filePath), "file is not downloaded");
+
+            
         }
 
         [TearDown]

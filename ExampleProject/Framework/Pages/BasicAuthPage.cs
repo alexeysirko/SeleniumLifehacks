@@ -7,15 +7,15 @@ namespace ExampleProject.Framework.Pages
     internal class BasicAuthPage : Form
     {
         private const string PageName = "Basic Auth";
-        private IButton clickForJSAlertBtn => ElementFactory.GetButton(By.XPath("//button[@onclick='jsAlert()']"), "Click for JS Alert btn");
-        private ILabel successMessageLbl => ElementFactory.GetLabel(By.XPath(string.Format(LocatorConstants.PreciseTextLocator, "You successfully clicked an alert")), "Success message text");
 
-
+        private readonly ILabel succesMessage = ElementFactory.GetLabel(By.XPath(string.Format(LocatorConstants.PartialTextLocator, "Congratulations! You must have the proper credentials.")), "Success Message");
         public BasicAuthPage() : base(By.XPath(string.Format(LocatorConstants.PreciseTextLocator, PageName)), PageName)
         {
         }
-
-        public void CLickJSAlertBtn() => clickForJSAlertBtn.Click();
-        public bool IsSuccessMessageDisplayed() => successMessageLbl.State.IsDisplayed;
+        
+        public bool IsSuccessMessageDisplayed()
+        {
+            return succesMessage.State.IsDisplayed;
+        }
     }
 }

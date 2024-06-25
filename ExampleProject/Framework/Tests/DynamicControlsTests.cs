@@ -12,12 +12,11 @@ namespace ExampleProject.Framework.Tests
         [Test]
         public void DynamicControlsTest()
         {
-            mainPage.ClickNavigationLink("Dynamic Controls");
-            dynamicControlsPage.ClickEnableBtn();
-            Assert.That(dynamicControlsPage.IsInputEnabled(), "Input is not enabled");
-            dynamicControlsPage.InputText(randomString);
-            Assert.That(randomString, Is.EqualTo(dynamicControlsPage.GetInputTextValue()),
-                "Text is not displayed");
+            //mainPage.ClickNavigationLink("Dynamic Controls");
+            dynamicControlsPage.clickEnableBtn();
+            Assert.That(dynamicControlsPage.isInputEnabled(), "input is not enabled");
+            dynamicControlsPage.inputText(randomString);
+            Assert.That(dynamicControlsPage.getInputTextValue() , Is.EqualTo(randomString) , "Text is not inputed");
         }
     }
 }

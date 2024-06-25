@@ -1,5 +1,6 @@
 ﻿using Aquality.Selenium.Elements.Interfaces;
 using Aquality.Selenium.Forms;
+using Microsoft.VisualStudio.TestPlatform.Utilities;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -11,21 +12,22 @@ namespace ExampleProject.Framework.Pages
 {
     internal class FileUploadPage : Form
     {
-        private const string PageName = "File Upload";
-        private readonly IButton fileUploadBtn = ElementFactory.GetButton(By.XPath(string.Format(LocatorConstants.PreciseTextLocator, "File Upload")), "File Upload");
-        private readonly ITextBox chooseFileTxb = ElementFactory.GetTextBox(By.Id("file-upload"), "Choose file button");
-        private readonly IButton fileSubmitBtn = ElementFactory.GetButton(By.Id("file-submit"), "Submit file field");
-        private readonly ILabel uploadedFileField = ElementFactory.GetLabel(By.Id("uploaded-files"), "Uploaded file field");
+        private const string PageName = "File Uploader";
+       
+        private ITextBox chooseFile = ElementFactory.GetTextBox(By.Id("file-upload"), "choose file");
+        private IButton submitBtn = ElementFactory.GetButton(By.Id("file-submit"), "Submit Button");
+        private ILabel uploadedFiles = ElementFactory.GetLabel(By.Id("uploaded-files"), "Uploaded files field");
 
-
-        public FileUploadPage() : base(By.XPath(string.Format(LocatorConstants.PreciseTextLocator, PageName)), PageName)
+        public FileUploadPage() : base(By.XPath(string.Format(LocatorConstants.PreciseTextLocator , PageName)), PageName)
         {
+
         }
 
+        
+        public void SendKeysToChooseFile(string value) => chooseFile.SendKeys(value);
 
-        public void ClickFileUploadBtn() => fileUploadBtn.Click();
-        public void SendKeysToFileToChooseFileTxb(string value) => chooseFileTxb.SendKeys(value);
-        public void ClickFileSubmitBtn() => fileSubmitBtn.Click();
-        public string GetNameOfUploadedFile() => uploadedFileField.Text;
+        public void ClickSubmitButton() => submitBtn.Click();
+
+        public string GetUploadedFileTxt() => uploadedFiles.Text;
     }
 }

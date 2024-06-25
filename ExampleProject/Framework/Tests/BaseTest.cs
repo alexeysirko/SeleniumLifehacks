@@ -2,26 +2,31 @@
 using Aquality.Selenium.Core.Utilities;
 using ExampleProject.Framework.Pages;
 using NUnit.Framework;
+using TechTalk.SpecFlow;
 
 namespace ExampleProject.Framework.Tests
 {
+    
     internal class BaseTest
     {
-        protected MainPage mainPage = new();
+        //protected MainPage mainPage = new();
         protected Browser browser;
         protected static readonly JsonSettingsFile settings = new("config.json");
         protected static readonly JsonSettingsFile testdata = new("testdata.json");
 
-        [SetUp]
-        public void SetUp()
+        
+        public void Setup()
         {
+
             browser = AqualityServices.Browser;
             browser.Maximize();
-            browser.Driver.Navigate().GoToUrl(settings.GetValue<string>("url"));
+            browser.GoTo(settings.GetValue<string>("url"));
+            browser.WaitForPageToLoad();
         }
 
-        [TearDown]
-        public void TearDown()
+
+        
+        public void Teardown()
         {
             browser.Quit();
         }
