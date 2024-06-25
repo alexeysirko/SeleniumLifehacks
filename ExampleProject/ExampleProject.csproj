@@ -49,13 +49,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Resources\Downloads\ExampleDownloadFile.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Resources\UploadFileExample.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+	<None Update="Resources\">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</None>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Features\" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties specflow_1json__JsonSchema="https://bitbucket.org/atlassianlabs/intellij-bitbucket-references-plugin/raw/master/src/main/resources/schemas/bitbucket-pipelines.schema.json" /></VisualStudio></ProjectExtensions>
 
 </Project>

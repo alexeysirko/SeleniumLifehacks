@@ -1,7 +1,10 @@
 ﻿Feature: AlertFeature
 
-A short summary of the feature
-@tag1
+As a user of the-internet
+I want to interact with alerts
+To accept important messages
+
+@TC25
 Scenario: Alert Handling
 Given I go to 'JavaScript Alerts' on the Main Page
 When I generate JS alert on the Javascript alert page

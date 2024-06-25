@@ -1,17 +1,11 @@
 ﻿using Aquality.Selenium.Browsers;
 using Aquality.Selenium.Core.Utilities;
-using Newtonsoft.Json.Bson;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace ExampleProject.Hooks
 {
     [Binding]
-    internal class HooksClass
+    internal class Hooks
     {
         private readonly Browser browser = AqualityServices.Browser;
         private static readonly JsonSettingsFile settings = new("config.json");
