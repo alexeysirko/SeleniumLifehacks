@@ -7,18 +7,19 @@ namespace ExampleProject.Hooks
     [Binding]
     internal class Hooks
     {
-        private readonly Browser browser = AqualityServices.Browser;
+        private Browser browser;
         private static readonly JsonSettingsFile settings = new("config.json");
 
-        [BeforeScenario]
+        [BeforeScenario("@TC25")]
 
         public void Setup()
         {
+            browser = AqualityServices.Browser;
             browser.Maximize();
             browser.GoTo(settings.GetValue<string>("url"));
         }
 
-        [AfterScenario]
+        [AfterScenario("@TC25", Order = 2)]
 
         public void TearDown()
         {

@@ -35,6 +35,7 @@
     <PackageReference Include="Allure.SpecFlow" Version="2.12.1" />
     <PackageReference Include="Aquality.Selenium" Version="4.17.0" />
     <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+    <PackageReference Include="ExtentReports" Version="5.0.4" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
     <PackageReference Include="NUnit" Version="4.1.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
