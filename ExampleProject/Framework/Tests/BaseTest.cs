@@ -1,10 +1,9 @@
 ﻿using Aquality.Selenium.Browsers;
 using Aquality.Selenium.Core.Utilities;
 using ExampleProject.Framework.Pages;
-using Microsoft.VisualStudio.TestPlatform.Common.Telemetry;
 using NUnit.Framework;
 using OpenQA.Selenium.DevTools;
-using OpenQA.Selenium.DevTools.V126.Page;
+using OpenQA.Selenium.DevTools.V129.Page;
 using System;
 using System.Collections.Generic;
 
@@ -47,7 +46,7 @@ namespace ExampleProject.Framework.Tests
         public void CheckDevtoolsMetrics()
         {
             using var devtools = AqualityServices.Browser.DevTools.GetDevToolsSession();
-            DevToolsPerformanceExtensions.EnablePerfomanceMonitoring(AqualityServices.Browser.DevTools);
+            DevToolsPerformanceExtensions.EnablePerformanceMonitoring(AqualityServices.Browser.DevTools);
             IDictionary<string, double> metrics = DevToolsPerformanceExtensions.GetPerformanceMetrics(AqualityServices.Browser.DevTools).Result;
             foreach (var metric in metrics)
             {
