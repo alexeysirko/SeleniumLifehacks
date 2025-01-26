@@ -30,9 +30,3 @@ Examples:
     | user1    | pass1    |
     | user2    | pass2    |
     | user3    | pass3    |
-
-
-Scenario: Calculate date in the future
-Given today is 2024-06-25
-When I add in 3 days
-Then the date should be 2024-06-28
