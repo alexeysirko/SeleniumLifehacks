@@ -36,7 +36,7 @@
         // Пример использования
         class ProxyLogic
         {
-            static void Main()
+            static void MainMethod()
             {
                 ISubject proxy = new Proxy();
                 proxy.Request();

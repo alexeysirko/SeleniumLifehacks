@@ -76,7 +76,7 @@
         // Пример использования
         class MediatorLogic
         {
-            static void Main()
+            static void MainMethod()
             {
                 ComponentA componentA = new ComponentA();
                 ComponentB componentB = new ComponentB();

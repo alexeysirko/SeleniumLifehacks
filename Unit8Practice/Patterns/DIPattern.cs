@@ -38,7 +38,7 @@
         // Пример использования
         class Program
         {
-            static void Main()
+            static void MainMethod()
             {
                 // Создание экземпляра службы
                 IService service = new Service();

@@ -65,7 +65,7 @@
         // Пример использования
         class DecoratorLogic
         {
-            static void Main()
+            static void MainMethod()
             {
                 IComponent component = new ConcreteComponent();
                 IComponent decoratorA = new ConcreteDecoratorA(component);

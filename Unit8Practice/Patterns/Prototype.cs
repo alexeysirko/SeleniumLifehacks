@@ -28,7 +28,7 @@
         // Пример использования
         class PrototypeLogic
         {
-            static void Main()
+            static void MainMethod()
             {
                 ConcretePrototype prototype1 = new ConcretePrototype { Id = 1, Name = "Prototype 1" };
                 ConcretePrototype prototype2 = (ConcretePrototype)prototype1.Clone();

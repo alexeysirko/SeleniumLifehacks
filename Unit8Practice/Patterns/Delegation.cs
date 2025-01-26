@@ -41,7 +41,7 @@ namespace Unit8Practice.Patterns
     // Пример использования
     class DelegationLogic
     {
-        static void Main()
+        static void MainMethod()
         {
             ITask task = new ConcreteTask();
             ITask delegator = new TaskDelegator(task);

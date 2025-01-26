@@ -36,7 +36,7 @@
         // Пример использования
         class SyncSingletoneLogic
         {
-            static void Main()
+            static void MainMethod()
             {
                 Singleton singleton = Singleton.Instance;
                 singleton.DoSomething();

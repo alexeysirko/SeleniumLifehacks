@@ -70,7 +70,7 @@
         // Пример использования
         class ObserverLogic
         {
-            static void Main()
+            static void MainMethod()
             {
                 ConcreteSubject subject = new ConcreteSubject();
 

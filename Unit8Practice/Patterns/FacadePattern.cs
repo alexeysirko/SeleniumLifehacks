@@ -67,7 +67,7 @@ namespace Unit8Practice.Patterns
         // Пример использования
         class Program
         {
-            static void Main()
+            static void MainMethod()
             {
                 Facade facade = new Facade();
 

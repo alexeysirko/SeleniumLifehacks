@@ -90,7 +90,7 @@
 
         public static class FactoryLogic
         {
-            static void Main()
+            static void MainFactoryMethod()
             {
                 IGUIFactory factory;
 

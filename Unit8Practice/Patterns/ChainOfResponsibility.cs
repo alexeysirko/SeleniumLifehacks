@@ -64,7 +64,7 @@
         // Пример использования
         class ChainExample
         {
-            static void Main()
+            static void MainMethod()
             {
                 // Создаем обработчиков
                 Handler h1 = new ConcreteHandler1();
@@ -85,3 +85,4 @@
             }
         }
     }
+}

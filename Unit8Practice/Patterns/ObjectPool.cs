@@ -36,7 +36,7 @@ namespace Unit8Practice.Patterns
     // Пример использования
     class ObjectPoolLogic
     {
-        static void Main()
+        static void MainMethod()
         {
             var pool = new ObjectPool<MyClass>(5);
 

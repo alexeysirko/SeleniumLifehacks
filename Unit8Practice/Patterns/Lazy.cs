@@ -19,7 +19,7 @@
         {
             private static Lazy<ExpensiveObject> _lazyExpensiveObject = new Lazy<ExpensiveObject>(() => new ExpensiveObject());
 
-            static void Main()
+            static void MainMethod()
             {
                 Console.WriteLine("FactoryLogic started.");
 

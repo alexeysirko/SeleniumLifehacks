@@ -99,7 +99,7 @@
 
     public class BuilderLogic()
     {
-        public static void Main()
+        public static void MainBulderLogic()
         {
             var products = new List<Product>
             {

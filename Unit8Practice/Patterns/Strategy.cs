@@ -49,7 +49,7 @@
     // Пример использования
     class StrategyLogic
     {
-        static void Main()
+        static void MainMethod()
         {
             Context context;
 
