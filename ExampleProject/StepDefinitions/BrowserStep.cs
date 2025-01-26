@@ -35,6 +35,7 @@ namespace ExampleProject.StepDefinitions
         [When(@"Test fails")]
         public void WhenTestFails()
         {
+            // Not saved
             string valueFromPreviousStep = (string)_scenarioContext[Keyword];
             Assert.Fail(valueFromPreviousStep);
         }

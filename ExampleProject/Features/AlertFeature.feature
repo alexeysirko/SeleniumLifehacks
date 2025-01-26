@@ -20,16 +20,16 @@ Given Test passing step
 Scenario: Fails test
 When Test fails
 
-  Scenario Outline: Successful login with valid credentials
-    Given I navigate to the login page
-    When I enter "<username>" and "<password>"
-    Then I should see the welcome message
+Scenario Outline: Successful login with valid credentials
+Given I navigate to the login page
+When I enter "<username>" and "<password>"
+Then I should see the welcome message
 
-    Examples:
-      | username | password |
-      | user1    | pass1    |
-      | user2    | pass2    |
-      | user3    | pass3    |
+Examples:
+    | username | password |
+    | user1    | pass1    |
+    | user2    | pass2    |
+    | user3    | pass3    |
 
 
 Scenario: Calculate date in the future

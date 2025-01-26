@@ -7,13 +7,27 @@ namespace ExampleProject.StepDefinitions
     [Binding]
     public class DateSteps
     {
-        private DateTime _currentDate;
+        private readonly ScenarioContext _scenarioContext;
+        private const string SAVED_DATE_KEY = "SAVED_DATE_KEY";
+        private DateTime _savedDate;
         private DateTime _futureDate;
+
+        public DateSteps(ScenarioContext scenarioContext)
+        {
+            _scenarioContext = scenarioContext;
+        }
+
+        [StepArgumentTransformation(@"in (\d+) days?")]
+        public DateTime InXDaysTransform(int days)
+        {
+            var currentDate = (DateTime)_scenarioContext[SAVED_DATE_KEY];
+            return currentDate.AddDays(days);
+        }
 
         [Given(@"today is (.*)")]
         public void GivenTodayIs(DateTime date)
         {
-            _currentDate = date;
+            _scenarioContext.Add(SAVED_DATE_KEY, date);
         }
 
         [When(@"I add (.*)")]
