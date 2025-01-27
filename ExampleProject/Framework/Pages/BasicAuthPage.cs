@@ -17,5 +17,8 @@ namespace ExampleProject.Framework.Pages
 
         public void CLickJSAlertBtn() => clickForJSAlertBtn.Click();
         public bool IsSuccessMessageDisplayed() => successMessageLbl.State.IsDisplayed;
+        //Commit 1 
+        //Commit 2
+        //Commit 3
     }
 }
