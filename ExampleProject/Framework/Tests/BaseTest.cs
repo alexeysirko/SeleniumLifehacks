@@ -23,16 +23,20 @@ namespace ExampleProject.Framework.Tests
         [AllureBefore("Start the test browser")]
         public void SetUp()
         {
+            AllureApi.AddAttachment("settings file", "text/plain", "Resources/settings.json");
+
             browser = AqualityServices.Browser;
             browser.Maximize();
             browser.Driver.Navigate().GoToUrl(settings.GetValue<string>("url"));
         }
 
         [TearDown]
-        [AllureAfter("Close the browser")]
+        [AllureAfter("Close the browser")]       
         public void TearDown()
-        {
-            AllureApi.AddAttachment("settings file", "text/plain", "Resources/settings.json");
+        {   
+            byte[] screenshot = AqualityServices.Browser.GetScreenshot();
+            AllureApi.AddAttachment("Screenshot", "image/png", screenshot);
+            
             browser.Quit();
         }
     }

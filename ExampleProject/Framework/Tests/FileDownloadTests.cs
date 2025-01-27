@@ -21,6 +21,7 @@ namespace ExampleProject.Framework.Tests
         [AllureId(15)]
         [AllureLabel("Download", "super download file")]
         [AllureName("File download name name name")]
+        [AllureIssue("Download file name is updated dynamically")]
         public void FileDownloadTest()
         {
             AllureApi.Step(nameof(mainPage.ClickNavigationLink));
