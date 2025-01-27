@@ -14,5 +14,6 @@ internal class Program
         //DynamicTest.DynamicLogic();
         //PostSharpTest.PostSharpLogic();
         OpenCVTest.OpenCVLogic();
+        //OpenCVTest.OpenCVCompare();
     }
 }

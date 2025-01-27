@@ -22,7 +22,16 @@ namespace Unit8Practice.OpenCV
             PrintDifferencePercent(InputFilePath, ImagesFolder + "exampleDefect.jpg");
         }
 
+        public static void OpenCVCompare()
+        {
+            string actualImagePath = ImagesFolder + "actual_image.jpg";
+            string expectedImagePath = ImagesFolder + "expected_image.jpg";
 
+            ShowImage(actualImagePath);
+            ShowImage(expectedImagePath);
+            ShowDifference(actualImagePath, expectedImagePath);
+            PrintDifferencePercent(actualImagePath, expectedImagePath);
+        }
 
         private static void MakePhotoGray(string inputFilePath, string outputFilePath)
         {
@@ -73,11 +82,14 @@ namespace Unit8Practice.OpenCV
             // Changing пороговое значение разницы
             Cv2.Threshold(diff, thresh, 30, 255, ThresholdTypes.Binary);
 
-            Cv2.ImShow("Difference", diff);            
-            Cv2.WaitKey(0);
+            
+            //Cv2.ImShow("Difference", diff);            
+            //Cv2.WaitKey(0);
             Cv2.ImShow("Threshdiff", thresh);
             Cv2.WaitKey(0);
             Cv2.DestroyAllWindows();
+
+            MergeImages(inputFilePath, outputFilePath);
         }
 
         private static void PrintDifferencePercent(string inputFilePath, string outputFilePath)
