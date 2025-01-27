@@ -120,41 +120,41 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                             "Field",
                             "Value"});
-                table1.AddRow(new string[] {
+                table2.AddRow(new string[] {
                             "Name",
                             "Pudge"});
-                table1.AddRow(new string[] {
+                table2.AddRow(new string[] {
                             "Birthdate",
                             "2/2/2003"});
-                table1.AddRow(new string[] {
+                table2.AddRow(new string[] {
                             "Occupation",
                             "Butcher"});
-                table1.AddRow(new string[] {
+                table2.AddRow(new string[] {
                             "Favorite Weapon",
                             "Meat Hook"});
-                table1.AddRow(new string[] {
+                table2.AddRow(new string[] {
                             "Health",
                             "670"});
 #line 10
-testRunner.When("I entered the following hero information:", ((string)(null)), table1, "When ");
+testRunner.When("I entered the following hero information:", ((string)(null)), table2, "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Birthdate",
                             "Occupation",
                             "Favorite Weapon",
                             "Health"});
-                table2.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "Pudge",
                             "2/2/2003",
                             "Butcher",
                             "Rot",
                             "9999"});
 #line 18
-testRunner.Then("Hero information is equal to:", ((string)(null)), table2, "Then ");
+testRunner.Then("Hero information is equal to:", ((string)(null)), table3, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
