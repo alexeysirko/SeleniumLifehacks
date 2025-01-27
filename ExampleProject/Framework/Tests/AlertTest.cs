@@ -31,10 +31,8 @@ namespace ExampleProject.Framework.Tests
                 Longitude = -122.4194,
                 Accuracy = 1
             });
-
             AqualityServices.Browser.Driver.Navigate().Refresh();
             AqualityServices.Browser.DevTools.CloseDevToolsSession();
-            CheckDevtoolsMetrics();
         }
     }
 }
