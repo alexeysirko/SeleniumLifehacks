@@ -1,9 +1,13 @@
-﻿namespace Unit8Tests.Tests
+﻿using System.Threading;
+
+namespace Unit8Tests.Tests
 {
     [TestFixture]
     [Parallelizable(ParallelScope.All)]
     public class MultiThreadTests
     {
+        // Похож на ThreadStatic, но предоставляет более гибкий и мощный способ управления данными, специфичными для каждого потока.
+        // ThreadLocal позволяет инициализировать значение для каждого потока с помощью делегата и предоставляет методы для управления жизненным циклом этих значений.
         private static ThreadLocal<int> _threadLocal = new ThreadLocal<int>(() => 0);
         
 
@@ -12,6 +16,7 @@
         {
             Parallel.For(0, 10, i =>
             {
+                // .Value пример метода
                 _threadLocal.Value = i;
                 Console.WriteLine($"Thread local: i is {i}, thread is {_threadLocal.Value}");
                 Assert.AreEqual(i, _threadLocal.Value);
@@ -19,6 +24,9 @@
         }
 
 
+        // Используется для создания переменных, которые являются уникальными для каждого потока.
+        // Переменная, помеченная атрибутом ThreadStatic, имеет отдельное значение для каждого потока.
+        // Это полезно, когда нужно хранить данные, специфичные для каждого потока
         [ThreadStatic]
         private static int _threadStatic;
 
@@ -34,7 +42,8 @@
         }
 
 
-
+        // Асинхронные методы (async/await): Идеальны для ввода-вывода и операций, которые могут быть приостановлены без блокировки потоков. Похожи на синхронные
+        // Многопоточные методы (lock): Идеальны для задач, требующих параллельного выполнения и интенсивных вычислений.
         [Test, Parallelizable]
         public async Task TestAsyncMethod()
         {
@@ -60,7 +69,9 @@
         {
             Parallel.For(0, 1000, i =>
             {
-                // This statement ensures that only one thread can enter the critical section at a time.
+                // Используется для синхронизации доступа к общим ресурсам между несколькими потоками.
+                // lock блокирует определенный участок кода, чтобы только один поток мог выполнить его в данный момент времени.
+                // Это предотвращает состояние гонки и обеспечивает целостность данных.
                 lock (_lock)
                 {
                     _counter++;

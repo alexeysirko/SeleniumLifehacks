@@ -28,6 +28,7 @@ namespace Unit8Practice.Tests
 
 
         [Test]
+        //Можно передать cтатик поле, свойство или метод
         [TestCaseSource(nameof(TestDataPersons))]
         public void DDTTest(Person testPerson)
         {
