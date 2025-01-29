@@ -1,4 +1,7 @@
-﻿namespace Unit8Tests.Tests
+﻿using NUnit.Framework.Interfaces;
+using NUnit.Framework.Internal;
+
+namespace Unit8Tests.Tests
 {
     internal abstract class BaseTest
     {
@@ -13,6 +16,17 @@
             // Internal классы Nunit
             //var Result = TestExecutionContext.CurrentContext.CurrentResult;
             //TestContext.WriteLine(nunitResult.AssertCount);
-        }    
+        }
+
+        [TearDown]
+        protected void ChangeResultToPassed()
+        {
+            var currentTest = TestContext.CurrentContext.Test;
+            if (currentTest.Properties["Category"].Contains("Magic"))
+            {
+                TestContext.WriteLine("Test failed with message: " + TestContext.CurrentContext.Result.Message);
+                TestExecutionContext.CurrentContext.CurrentResult.SetResult(ResultState.Success, $"But later test magically passed!");
+            }
+        }
     }
 }

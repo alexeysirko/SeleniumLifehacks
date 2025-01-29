@@ -47,17 +47,5 @@ namespace Unit8Tests.Tests
         {
             Assert.That(5, Is.GreaterThan(6));
         }
-        
-
-        [TearDown]
-        protected void ChangeResultToPassed()
-        {
-            var currentTest = TestContext.CurrentContext.Test;
-            if (currentTest.Properties["Category"].Contains("Magic"))
-            {
-                TestContext.WriteLine("Test failed with message: " + TestContext.CurrentContext.Result.Message);
-                TestExecutionContext.CurrentContext.CurrentResult.SetResult(ResultState.Success, $"But later test magically passed!");
-            }
-        }
     }
 }
