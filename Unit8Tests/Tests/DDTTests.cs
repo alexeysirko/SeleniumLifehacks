@@ -1,7 +1,9 @@
-﻿using System.Text.Json;
+﻿using NUnit.Framework.Interfaces;
+using NUnit.Framework.Internal;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Unit8Practice.Tests
+namespace Unit8Tests.Tests
 {
     public record Person(
         [property: JsonPropertyName("name")] string Name,
@@ -11,7 +13,7 @@ namespace Unit8Practice.Tests
         [property: JsonPropertyName("users")] List<Person> Persons);
 
     [TestFixture]
-    internal class DDTTests
+    internal class DDTTests : BaseTest
     {
         public static IEnumerable<Person> TestDataPersons
         {
@@ -38,6 +40,24 @@ namespace Unit8Practice.Tests
                 Assert.That(testPerson.Surname, Does.Not.EndsWith("es"));
                 Assert.That(testPerson.Age, Is.GreaterThan(0));
             });
+        }
+
+        [Test, Category("Magic")]
+        public void ShouldFail()
+        {
+            Assert.That(5, Is.GreaterThan(6));
+        }
+        
+
+        [TearDown]
+        protected void ChangeResultToPassed()
+        {
+            var currentTest = TestContext.CurrentContext.Test;
+            if (currentTest.Properties["Category"].Contains("Magic"))
+            {
+                TestContext.WriteLine("Test failed with message: " + TestContext.CurrentContext.Result.Message);
+                TestExecutionContext.CurrentContext.CurrentResult.SetResult(ResultState.Success, $"But later test magically passed!");
+            }
         }
     }
 }

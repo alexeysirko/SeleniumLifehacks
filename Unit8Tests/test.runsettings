@@ -1,5 +1,7 @@
-﻿<RunSettings>
-	<RunConfiguration>
-		<ResultsDirectory>TestResults</ResultsDirectory>
-	</RunConfiguration>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+	<NUnit>
+		<TestOutputXml>TestResults</TestOutputXml>
+		<DisplayName>FullName</DisplayName>
+	</NUnit>
 </RunSettings>
