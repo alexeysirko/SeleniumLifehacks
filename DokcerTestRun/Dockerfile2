@@ -1,0 +1,4 @@
+﻿FROM alpine:latest
+
+RUN apk update
+RUN apk add --no-cache vim curl git
